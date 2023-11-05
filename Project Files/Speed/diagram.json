@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "author": "upir",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 10, "left": 20, "attrs": {} },
+    {
+      "type": "wokwi-ssd1306",
+      "id": "ssd1306",
+      "top": 256.67,
+      "left": 39.33,
+      "attrs": { "i2c-address": "0x3c" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 245.43,
+      "left": 212.83,
+      "attrs": { "color": "grey", "label": "UP ↑", "key": "ArrowUp" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 312.72,
+      "left": 212.31,
+      "attrs": { "color": "grey", "label": "Select →", "key": "Enter" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": 382.36,
+      "left": 212.97,
+      "attrs": { "color": "grey", "label": "Down ↓", "key": "ArrowDown" }
+    },
+    { "type": "wokwi-slide-switch", "id": "sw1", "top": -46.64, "left": 111.79, "attrs": {} }
+  ],
+  "connections": [
+    [ "uno:GND.2", "ssd1306:GND", "black", [ "v12", "*", "h0" ] ],
+    [ "uno:5V", "ssd1306:VIN", "red", [ "v16", "*", "h0" ] ],
+    [ "uno:A4", "ssd1306:DATA", "blue", [ "v20", "*", "h0" ] ],
+    [ "uno:A5", "ssd1306:CLK", "purple", [ "v24", "*", "h0" ] ],
+    [ "btn1:2.l", "uno:GND.3", "green", [ "h-12.11", "v-2.76" ] ],
+    [ "btn2:2.l", "uno:GND.3", "green", [ "h-10.94", "v2.69" ] ],
+    [ "btn3:2.l", "uno:GND.3", "green", [ "h-11.47", "v0.49" ] ],
+    [ "btn3:1.r", "uno:4", "green", [ "v-0.3", "h77.53", "v-402.39", "h-117.28" ] ],
+    [ "btn2:1.r", "uno:8", "green", [ "v-1.82", "h87.02", "v-336.64", "h-170.77" ] ],
+    [ "btn1:1.r", "uno:12", "green", [ "v-0.29", "h94.85", "v-281.68", "h-212.48" ] ],
+    [ "sw1:2", "uno:13", "green", [ "v14.85", "h16.75" ] ],
+    [ "sw1:3", "uno:GND.1", "green", [ "v0" ] ],
+    [ "sw1:1", "uno:5V", "green", [ "v131.28", "h58.05", "v-1.87" ] ]
+  ],
+  "dependencies": {}
+}
